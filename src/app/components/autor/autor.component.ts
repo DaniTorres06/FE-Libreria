@@ -14,7 +14,7 @@ export class AutorComponent implements OnInit {
 
   
   vArrAutor: Autor[]=[];
-  displayedColumns: string[] = ['id', 'nombreCompleto', 'fechaNacimiento', 'ciudadProcedencia', 'correo'];  
+  displayedColumns: string[] = ['id', 'nombreCompleto', 'fechaNacimiento', 'ciudadProcedencia', 'correo', 'acciones'];  
   dataSource = new MatTableDataSource<Autor>();
   
   loading: boolean = false;
@@ -60,9 +60,20 @@ export class AutorComponent implements OnInit {
       //this.vArrAutor = <Autor[]>prueba.objData
       this.loading = false;
       this.dataSource.data = prueba.objData;
+      console.log(prueba.objData);
       //console.log('Todo el objeto' , prueba)
       
     })
+  }
+
+  eliminarAutor(id: number) {
+    this.loading = true;
+
+    this._autorService.deleteAutor(id).subscribe(() => {      
+     //this.mensajeExito();
+     //this.loading = false;
+     this.obtenerAutores();
+    });    
   }
   
 

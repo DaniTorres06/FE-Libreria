@@ -1,0 +1,19 @@
+.card {
+    margin-top: 10px;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin: 5px;
+}
+
+.btnAceptar {
+    margin-right: 5px;
+}
+
+.title{
+    padding: 30px;
+    background-color: #666;
+    text-align: center;
+    color: white
+    }

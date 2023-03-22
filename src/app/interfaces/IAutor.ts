@@ -1,6 +1,6 @@
 export interface Autor
 {
-    id: number,
+    id?: number,
     nombreCompleto: string,
     fechaNacimiento: Date,
     ciudadProcedencia: string,

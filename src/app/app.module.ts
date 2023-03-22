@@ -14,12 +14,23 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { MatInputModule } from '@angular/material/input';
+import { AddEditAutorComponent } from './components/add-edit-autor/add-edit-autor.component';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule  } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AutorComponent
+    AutorComponent,
+    AddEditAutorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +40,13 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,    
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    AppRoutingModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
