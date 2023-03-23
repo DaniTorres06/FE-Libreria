@@ -22,3 +22,7 @@ color: white
   
   margin: 0 20%
 }
+
+mat-form-field {
+  margin-right: 12px;
+}

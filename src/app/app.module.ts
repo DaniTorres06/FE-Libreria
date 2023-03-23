@@ -22,6 +22,10 @@ import { MatCardModule } from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+import { LibroComponent } from './components/libro/libro.component';
+import { AddEditLibroComponent } from './components/add-edit-libro/add-edit-libro.component';
 
 
 
@@ -30,7 +34,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     AutorComponent,
-    AddEditAutorComponent
+    AddEditAutorComponent,
+    
+    LibroComponent,
+    AddEditLibroComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatGridListModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
     
   ],
   providers: [],

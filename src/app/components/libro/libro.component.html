@@ -1,5 +1,5 @@
 <div class="title">
-    <h1>Listado de Autores</h1>
+    <h1>Listado de Libros</h1>
   </div>
 
   <div class="container">
@@ -20,46 +20,50 @@
       </ng-container>
     
       <!-- Name Column -->
-      <ng-container matColumnDef="nombreCompleto">
-        <th mat-header-cell *matHeaderCellDef> Nombre completo </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> titulo </th>
+        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
       </ng-container>
     
       <!-- Weight Column -->
-      <ng-container matColumnDef="fechaNacimiento">
-        <th mat-header-cell *matHeaderCellDef> Fecha de nacimiento </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento | date: 'dd/MM/yyyy'}} </td>
+      <ng-container matColumnDef="anoPublicacion">
+        <th mat-header-cell *matHeaderCellDef> anoPublicacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.anoPublicacion | date: 'dd/MM/yyyy'}} </td>
       </ng-container>
     
       <!-- Symbol Column -->
-      <ng-container matColumnDef="ciudadProcedencia">
-        <th mat-header-cell *matHeaderCellDef> Ciudad  de procedencia </th>
-        <td mat-cell *matCellDef="let element"> {{element.ciudadProcedencia}} </td>
+      <ng-container matColumnDef="genero">
+        <th mat-header-cell *matHeaderCellDef> genero </th>
+        <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
-      <ng-container matColumnDef="correo">
-          <th mat-header-cell *matHeaderCellDef> Correo </th>
-          <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
-          
+      <ng-container matColumnDef="numPaginas">
+          <th mat-header-cell *matHeaderCellDef> numPaginas </th>
+          <td mat-cell *matCellDef="let element"> {{element.numPaginas}} </td>          
       </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="autor">
+        <th mat-header-cell *matHeaderCellDef> autor </th>
+        <td mat-cell *matCellDef="let element"> {{element.autor}} </td>          
+    </ng-container>
 
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef> 
-            <button [routerLink]="['/agregarAutor']" class="agregar" mat-raised-button color="accent">Agregar autor</button>            
+            <button [routerLink]="['/agregarLibro']" class="agregar" mat-raised-button color="accent">Agregar libro</button>
         </th>
         
         <td mat-cell *matCellDef="let element"> 
-          <button routerLink="/editarAutor/{{ element.id }}"  class="editar" mat-raised-button color="primary">Editar</button> 
-          <button (click)="eliminarAutor(element.id)"  class="delete" mat-raised-button color="warn">Eliminar</button>
-            
+          <button routerLink="/editarLibro/{{ element.id }}"  class="editar" mat-raised-button color="primary">Editar</button> 
+          <button (click)="eliminarLibro(element.id)"  class="delete" mat-raised-button color="warn">Eliminar</button>            
         </td>
-        
       </ng-container>
+      
 
-      <ng-container matColumnDef="addLibro">
+      <ng-container matColumnDef="volverAutor">
         <th mat-header-cell *matHeaderCellDef> 
-          <button mat-mini-fab color="warn" matTooltip="Example" [routerLink]="['/app-libro']">
+          <button mat-mini-fab color="warn" matTooltip="Example" [routerLink]="['/app-autor']">
             <mat-icon>library_add</mat-icon>
           </button>
         </th>
@@ -68,7 +72,6 @@
             
         </td>
       </ng-container>
-     
         
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
