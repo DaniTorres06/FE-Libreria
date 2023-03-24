@@ -81,10 +81,10 @@ export class AddEditAutorComponent implements OnInit {
   }
 
   agregarAutor(vAutor: Autor) {
-    this._autorService.addAutor(vAutor).subscribe(data => {      
+    this._autorService.addAutor(vAutor).subscribe((data) => {      
       this.router.navigate(['/app-autor']);
       //console.log(data);
-      this._snackBar.open('Autor agregado a la lista','',{
+      this._snackBar.open(data.message,'',{
         duration: 3000,
         horizontalPosition: 'right',
         verticalPosition: 'bottom'
@@ -95,9 +95,9 @@ export class AddEditAutorComponent implements OnInit {
   editarAutor(id: number, vAutor: Autor) {
     //this.loading = true;
     
-    this._autorService.updateAutor(vAutor).subscribe(() => {      
+    this._autorService.updateAutor(vAutor).subscribe((data) => {      
       this.router.navigate(['/app-autor']);
-      this._snackBar.open('Autor editado','',{
+      this._snackBar.open(data.message,'',{
         duration: 3000,
         horizontalPosition: 'right',
         verticalPosition: 'bottom'

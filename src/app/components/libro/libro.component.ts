@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { LibroService } from 'src/app/services/libro.services'
+import { LibroService } from 'src/app/services/libro.service'
 import { MatTableDataSource } from '@angular/material/table';
 import { Libro } from 'src/app/interfaces/ILibro';
 import { MatSort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class LibroComponent implements OnInit {
 
   vArrlibro: Libro[]=[];
-  displayedColumns: string[] = ['id', 'titulo', 'anoPublicacion', 'genero', 'numPaginas', 'autor','acciones','volverAutor'];  
+  displayedColumns: string[] = ['titulo', 'anoPublicacion', 'genero', 'numPaginas', 'autor','acciones','volverAutor'];  
   dataSource = new MatTableDataSource<Libro>();
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
@@ -61,23 +61,22 @@ export class LibroComponent implements OnInit {
     //this.loading = true;
 
     this._libroService.getLibro().subscribe((prueba) => {
-      //this.vArrAutor = <Autor[]>prueba.objData
-      //this.loading = false;
+      
       this.dataSource.data = prueba.objData;
       console.log(prueba.objData);
-      //console.log('Todo el objeto' , prueba)
-      
+
     })
   }
 
   eliminarLibro(id: number) {
     //this.loading = true;
 
-    this._libroService.deleteLibro(id).subscribe(() => {      
+    this._libroService.deleteLibro(id).subscribe((data) => {      
      //this.mensajeExito();
      //this.loading = false;
+     console.log();
      this.obtenerLibros();
-     this._snackBar.open('Libro eliminado','',{
+     this._snackBar.open(data.message,'',{
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'bottom'

@@ -64,28 +64,31 @@ export class AutorComponent implements OnInit {
     this.loading = true;
 
     this._autorService.getAutores().subscribe((prueba) => {
-      //this.vArrAutor = <Autor[]>prueba.objData
+      
       this.loading = false;
       this.dataSource.data = prueba.objData;
-      console.log(prueba.objData);
-      //console.log('Todo el objeto' , prueba)
+      console.log(prueba.objData);      
       
     })
   }
 
   eliminarAutor(id: number) {
     this.loading = true;
+    let vMsjSalida: string ='';
 
-    this._autorService.deleteAutor(id).subscribe(() => {      
-     //this.mensajeExito();
-     //this.loading = false;
+    this._autorService.deleteAutor(id).subscribe((data) => {
+
      this.obtenerAutores();
-    });    
-    this._snackBar.open('Autor eliminado','',{
+
+     this._snackBar.open(data.message,'',{
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'bottom'
     });
+
+
+    });    
+    
   }
   
 

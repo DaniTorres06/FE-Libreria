@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Libro } from 'src/app/interfaces/ILibro';
-import { LibroService } from 'src/app/services/libro.services';
+import { LibroService } from 'src/app/services/libro.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -84,14 +84,19 @@ export class AddEditLibroComponent implements OnInit {
 }
 
 agregarLibro(vLibro: Libro) {
-  this._libroService.addLibro(vLibro).subscribe(data => {      
-    this.router.navigate(['/app-libro']);
-    //console.log(data);
-    this._snackBar.open('Libro agregado a la lista','',{
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'bottom'
-    });
+  this._libroService.addLibro(vLibro).subscribe((data) => {      
+
+    if (data.status){
+      this.router.navigate(['/app-libro']);
+    }
+    else{
+      this._snackBar.open(data.message,'',{
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'bottom'
+      });      
+    }
+    
   });
   
 }
@@ -99,9 +104,10 @@ agregarLibro(vLibro: Libro) {
 editarLibro(id: number, vLibro: Libro) {
   //this.loading = true;
   
-  this._libroService.updateLibro(vLibro).subscribe(() => {      
+  this._libroService.updateLibro(vLibro).subscribe((data) => {
     this.router.navigate(['/app-libro']);
-    this._snackBar.open('Libro editado','',{
+
+    this._snackBar.open(data.message,'',{
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'bottom'

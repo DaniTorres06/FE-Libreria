@@ -14,36 +14,36 @@
 
                 <mat-grid-tile [colspan]="2">
                     <mat-form-field appearance="outline">
-                        <mat-label>titulo</mat-label>
-                        <input formControlName="titulo" matInput autocomplete="off">
+                        <mat-label>Titulo</mat-label>
+                        <input type="text" formControlName="titulo" matInput autocomplete="off" maxlength="150">
                     </mat-form-field>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
-                        <mat-label>anoPublicacion</mat-label>                        
+                        <mat-label>Año de publicacion</mat-label>                        
                         <input type="datetime-local" formControlName="anoPublicacion" matInput autocomplete="off">
                     </mat-form-field>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
-                        <mat-label>genero</mat-label>
-                        <input formControlName="genero" matInput autocomplete="off">
+                        <mat-label>Genero</mat-label>
+                        <input type="text" formControlName="genero" matInput autocomplete="off" maxlength="100">
                     </mat-form-field>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
-                        <mat-label>numPaginas</mat-label>
-                        <input type="text" formControlName="numPaginas" matInput autocomplete="off">
+                        <mat-label>Numero de paginas</mat-label>
+                        <input type="number" formControlName="numPaginas" matInput autocomplete="off" maxlength="5">
                     </mat-form-field>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
-                        <mat-label>autor</mat-label>
-                        <input type="text" formControlName="autor" matInput autocomplete="off">
+                        <mat-label>Autor</mat-label>
+                        <input type="text" formControlName="autor" matInput autocomplete="off" maxlength="50">
                     </mat-form-field>
                 </mat-grid-tile>
 

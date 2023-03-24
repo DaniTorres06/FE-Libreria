@@ -22,13 +22,13 @@ export class AutorService {
     //return this.http.get<IRespLib>(this.vUrl);
   } 
 
-  addAutor(autor: Autor): Observable<Autor> {
-    return this.http.post<Autor>(`${this.myAppUrl}${this.myApiUrl}`, autor);
+  addAutor(autor: Autor): Observable<IRespLib> {
+    return this.http.post<IRespLib>(`${this.myAppUrl}${this.myApiUrl}`, autor);
   }
 
-  deleteAutor(id: number): Observable<void> {
+  deleteAutor(id: number): Observable<IRespLib> {
     //console.log('sisas' + this.myAppUrl +this.myApiUrl + '/?=' + id);
-    return this.http.delete<void>(this.myAppUrl +this.myApiUrl + '?vId=' + id);
+    return this.http.delete<IRespLib>(this.myAppUrl +this.myApiUrl + '?vId=' + id);
   }
 
   getAutor(id: number): Observable<IRespLib> {
@@ -36,8 +36,8 @@ export class AutorService {
     return this.http.get<IRespLib>(this.myAppUrl +this.myApiUrl + '/' + id);
   }
 
-  updateAutor(vAutor: Autor): Observable<Autor> {
-    return this.http.put<Autor>(`${this.myAppUrl}${this.myApiUrl}`, vAutor);
+  updateAutor(vAutor: Autor): Observable<IRespLib> {
+    return this.http.put<IRespLib>(`${this.myAppUrl}${this.myApiUrl}`, vAutor);
   }
 
 

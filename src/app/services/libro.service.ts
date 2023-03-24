@@ -22,13 +22,13 @@ export class LibroService {
     //return this.http.get<IRespLib>(this.vUrl);
   }
     
-  addLibro(libro: Libro): Observable<Libro> {
-    return this.http.post<Libro>(`${this.myAppUrl}${this.myApiUrl}`, libro);
+  addLibro(libro: Libro): Observable<IRespLib> {
+    return this.http.post<IRespLib>(`${this.myAppUrl}${this.myApiUrl}`, libro);
   }
 
-  deleteLibro(id: number): Observable<void> {
+  deleteLibro(id: number): Observable<IRespLib> {
     //console.log('sisas' + this.myAppUrl +this.myApiUrl + '/?=' + id);
-    return this.http.delete<void>(this.myAppUrl +this.myApiUrl + '?vId=' + id);
+    return this.http.delete<IRespLib>(this.myAppUrl +this.myApiUrl + '?vId=' + id);
   }
 
   getLiros(id: number): Observable<IRespLib> {
@@ -36,8 +36,8 @@ export class LibroService {
     return this.http.get<IRespLib>(this.myAppUrl +this.myApiUrl + '/' + id);
   }
 
-  updateLibro(vAutor: Libro): Observable<Libro> {
-    return this.http.put<Libro>(`${this.myAppUrl}${this.myApiUrl}`, vAutor);
+  updateLibro(vAutor: Libro): Observable<IRespLib> {
+    return this.http.put<IRespLib>(`${this.myAppUrl}${this.myApiUrl}`, vAutor);
   }
   
 

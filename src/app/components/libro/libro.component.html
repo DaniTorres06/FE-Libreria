@@ -13,39 +13,40 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
+      <!-- 
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Codigo </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
+       -->
     
       <!-- Name Column -->
       <ng-container matColumnDef="titulo">
-        <th mat-header-cell *matHeaderCellDef> titulo </th>
+        <th mat-header-cell *matHeaderCellDef> Titulo </th>
         <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
       </ng-container>
     
       <!-- Weight Column -->
       <ng-container matColumnDef="anoPublicacion">
-        <th mat-header-cell *matHeaderCellDef> anoPublicacion </th>
+        <th mat-header-cell *matHeaderCellDef> Año de publicacion </th>
         <td mat-cell *matCellDef="let element"> {{element.anoPublicacion | date: 'dd/MM/yyyy'}} </td>
       </ng-container>
     
       <!-- Symbol Column -->
       <ng-container matColumnDef="genero">
-        <th mat-header-cell *matHeaderCellDef> genero </th>
+        <th mat-header-cell *matHeaderCellDef> Genero </th>
         <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="numPaginas">
-          <th mat-header-cell *matHeaderCellDef> numPaginas </th>
+          <th mat-header-cell *matHeaderCellDef> Numero de paginas </th>
           <td mat-cell *matCellDef="let element"> {{element.numPaginas}} </td>          
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="autor">
-        <th mat-header-cell *matHeaderCellDef> autor </th>
+        <th mat-header-cell *matHeaderCellDef> Autor </th>
         <td mat-cell *matCellDef="let element"> {{element.autor}} </td>          
     </ng-container>
 
